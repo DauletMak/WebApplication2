@@ -1,0 +1,27 @@
+﻿@model WebApplication2.ViewModels.RandomProductViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*For sort later*@
+@{ 
+    var className = Model.Customer.Count > 2 ? "popular" : null;
+}
+
+<h2 class="@className">@Model.Product.Name</h2>
+
+@if (Model.Customer.Count == 0)
+{
+    <p>No one taken it</p>
+}
+else
+{
+<ul>
+@foreach (var customer in Model.Customer)
+{
+    <li>@customer.Name</li>
+}
+</ul>
+}
